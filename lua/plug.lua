@@ -2,6 +2,7 @@
 
 return require('packer').startup(function(use) 
  -- [[ Plugins Go Here ]]
+  use { "wbthomason/packer.nvim" }
   use {                                              -- filesystem navigation
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons'        -- filesystem icons
@@ -34,7 +35,6 @@ return require('packer').startup(function(use)
   use {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig",
   }
 
   config = {
