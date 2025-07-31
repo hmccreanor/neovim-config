@@ -12,12 +12,5 @@ require('opts')      -- Options
 require('keys')      -- Keymaps
 require('plug')      -- Plugins
 
-require('nvim-tree').setup{}
-
-require('nvim-autopairs').setup{}
-require('Comment').setup{}
-require('nvim-surround').setup{}
-
-require("mason").setup()
-require("mason-lspconfig").setup()
-
+vim.lsp.enable('lua_ls')
+vim.lsp.enable('clangd')

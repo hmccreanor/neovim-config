@@ -1,21 +1,19 @@
 --[[ keys.lua ]]
-local map = vim.api.nvim_set_keymap
 
-map('n', '<Leader>n', [[:NvimTreeToggle]], {})
-map('n', '<Leader>ff', [[:Telescope find_files]], {})
-map('n', '<Leader>fg', [[:Telescope live_grep]], {})
-map('n', '<Leader>fs', [[:Telescope grep_string]], {})
+local telescope = require('telescope.builtin')
+vim.keymap.set('n', '<Leader>ff', telescope.find_files, {})
+vim.keymap.set('n', '<Leader>fG', telescope.git_files, {})
+vim.keymap.set('n', '<Leader>fg', telescope.live_grep, {})
+vim.keymap.set('n', '<Leader>fs', telescope.grep_string, {})
 
-local diagnostics_enabled = true
-vim.diagnostic.disable()
+vim.keymap.set('n', '<Leader>vp', vim.cmd.Ex, {})
+
+local diagnostics_enabled = false
+vim.diagnostic.enable(false)
 
 vim.keymap.set('n', '<leader>td', function()
   diagnostics_enabled = not diagnostics_enabled
-  if diagnostics_enabled then
-    vim.diagnostic.enable()
-  else
-    vim.diagnostic.disable()
-  end
+  vim.diagnostic.enable(diagnostics_enabled)
 end, { silent = true, noremap = true })
 
 vim.keymap.set('n', '<leader>th', function()

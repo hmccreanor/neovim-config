@@ -3,10 +3,13 @@
 return require('packer').startup(function(use) 
  -- [[ Plugins Go Here ]]
   use { "wbthomason/packer.nvim" }
-  use {                                              -- filesystem navigation
-    'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons'        -- filesystem icons
-  }
+
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+
+  -- use {                                              -- filesystem navigation
+  --   'kyazdani42/nvim-tree.lua',
+  --   requires = 'kyazdani42/nvim-web-devicons'        -- filesystem icons
+  -- }
   use {
     'nvim-telescope/telescope.nvim',                 -- fuzzy finder
     requires = { {'nvim-lua/plenary.nvim'},
